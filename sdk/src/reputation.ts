@@ -19,9 +19,9 @@ export interface ReputationRecord {
 export class ReputationClient {
   private server: SorobanRpc.Server;
   private contract: Contract;
-  private config: SorobanIdentityConfig & { reputationId: string };
+  private config: SorobanIdentityConfig;
 
-  constructor(config: SorobanIdentityConfig & { reputationId: string }) {
+  constructor(config: SorobanIdentityConfig) {
     this.config = config;
     this.server = new SorobanRpc.Server(config.rpcUrl);
     this.contract = new Contract(config.reputationId);
