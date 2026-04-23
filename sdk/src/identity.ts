@@ -44,7 +44,7 @@ export class IdentityClient {
           metaScVal
         )
       )
-      .setTimeout(30)
+      .setTimeout(this.config.txTimeout ?? 30)
       .build();
 
     const prepared = await this.server.prepareTransaction(tx);
@@ -75,7 +75,7 @@ export class IdentityClient {
           nativeToScVal(controllerAddress, { type: "address" })
         )
       )
-      .setTimeout(30)
+      .setTimeout(this.config.txTimeout ?? 30)
       .build();
 
     const result = await this.server.simulateTransaction(tx);
@@ -105,7 +105,7 @@ export class IdentityClient {
           nativeToScVal(controllerAddress, { type: "address" })
         )
       )
-      .setTimeout(30)
+      .setTimeout(this.config.txTimeout ?? 30)
       .build();
 
     const result = await this.server.simulateTransaction(tx);
